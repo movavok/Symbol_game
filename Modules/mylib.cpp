@@ -48,7 +48,7 @@ bool isMovable(char map[sizeWorldY][sizeWorldX], int x, int y) { return map[y][x
 
 void mainLoop(char map[sizeWorldY][sizeWorldX], character pl){
     while (true){
-        if (movePlayer(map, getch(), &pl)) showMap(map, pl);
+        if (movePlayer(map, tolower(getch()), &pl)) showMap(map, pl);
         cout << pl.x << pl.y;
     }
 }
