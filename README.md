@@ -7,4 +7,6 @@
 ## 🚀 Features:
 - Move around the map using `WASD` keys.
 - A map with a border.
+- Grass flattening mechanic when stepping on grass tiles.
+<img src="./Readme/image/grassFlattering.png" width="250" alt="Game Screenshot">
 - Aaaand that's all for now.
