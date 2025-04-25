@@ -37,6 +37,7 @@ bool movePlayer(char map[sizeWorldY][sizeWorldX], char action, character* pl){
     case 'd': currentX++; break;
     }
     if (isMovable(map, currentX, currentY)){
+        map[pl->y][pl->x] = '.';
         pl->x = currentX;
         pl->y = currentY;
         return true;
@@ -44,7 +45,7 @@ bool movePlayer(char map[sizeWorldY][sizeWorldX], char action, character* pl){
     else return false;
 }
 
-bool isMovable(char map[sizeWorldY][sizeWorldX], int x, int y) { return map[y][x] == '~'; }
+bool isMovable(char map[sizeWorldY][sizeWorldX], int x, int y) { return map[y][x] == '~' || map[y][x] == '.'; }
 
 void mainLoop(char map[sizeWorldY][sizeWorldX], character pl){
     while (true){
