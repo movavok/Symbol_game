@@ -15,7 +15,7 @@ struct character{
 };
 
 void generateMap(char map[sizeWorldY][sizeWorldX]);
-void showMap(char map[sizeWorldY][sizeWorldX], character);
+void showMap(char map[sizeWorldY][sizeWorldX], character, string);
 bool movePlayer(char map[sizeWorldY][sizeWorldX], char, character*);
 void mainLoop(char map[sizeWorldY][sizeWorldX], character);
 bool isMovable(char map[sizeWorldY][sizeWorldX], int x, int y);

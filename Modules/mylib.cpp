@@ -16,7 +16,18 @@ void generateMap(char map[sizeWorldY][sizeWorldX]){
         }
 }
 
-void showMap(char map[sizeWorldY][sizeWorldX], character pl){
+string choosePlayerColor(char handleColor){ // not using
+    switch (handleColor){
+    case '1': return "\033[91m"; break; //
+    case '2': return "\033[92m"; break; //
+    case '3': return "\033[93m"; break; //
+    case '4': return "\033[94m"; break; //
+    case '5': return "\033[95m"; break; //
+    case '0': return "\033[90m"; break; //
+    }
+}
+
+void showMap(char map[sizeWorldY][sizeWorldX], character pl, string playerColor){
     system("cls");
     string color, stop = "\033[0m";
     for (int row = 0; row < sizeWorldY; row++){
@@ -27,10 +38,7 @@ void showMap(char map[sizeWorldY][sizeWorldX], character pl){
             default:  color = "\033[35m";
             }
 
-            if (pl.x == col && pl.y == row){
-                color = "\033[91m"; // yellow
-                cout << color << '&' << stop;
-            }
+            if (pl.x == col && pl.y == row) cout << playerColor << '&' << stop;
             else cout << color << map[row][col] << stop;
         }
         cout << "\n";
@@ -58,8 +66,13 @@ bool movePlayer(char map[sizeWorldY][sizeWorldX], char action, character* pl){
 bool isMovable(char map[sizeWorldY][sizeWorldX], int x, int y) { return map[y][x] == '~' || map[y][x] == '.'; }
 
 void mainLoop(char map[sizeWorldY][sizeWorldX], character pl){
+    string pc = "\033[91m";
     while (true){
-        if (movePlayer(map, tolower(getch()), &pl)) showMap(map, pl);
-        cout << pl.x << pl.y;
+        char handle = tolower(getch());
+        if (handle >= '0' && handle <= '5') pc = choosePlayerColor(handle); showMap(map, pl, pc);
+        if (movePlayer(map, handle, &pl)){
+            showMap(map, pl, pc);
+            cout << "[" << pl.x << "/" << pl.y << "]";
+        }
     }
 }

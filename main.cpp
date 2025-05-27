@@ -9,7 +9,7 @@ int main()
     player.y = sizeWorldY / 2;
 
     generateMap(map);
-    showMap(map, player);
+    showMap(map, player, "\033[91m");
 
     mainLoop(map, player);
 
