@@ -14,10 +14,9 @@ struct character{
     int y;
 };
 
-void generateMap(char map[sizeWorldY][sizeWorldX]);
-void showMap(char map[sizeWorldY][sizeWorldX], character, string);
-bool movePlayer(char map[sizeWorldY][sizeWorldX], char, character*);
-void mainLoop(char map[sizeWorldY][sizeWorldX], character);
-bool isMovable(char map[sizeWorldY][sizeWorldX], int x, int y);
+int main();
+void generateMap(char map[sizeWorldY][sizeWorldX], char);
+void showMap(char map[sizeWorldY][sizeWorldX], character, string, string paintColor = "\033[107m");
+void advLoop(char map[sizeWorldY][sizeWorldX], character, string, char);
 
 #endif // HEADER_H
