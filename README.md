@@ -11,4 +11,4 @@
 - Grass flattening mechanic when stepping on grass tiles. 
  <img src="./Readme/image/grassColor.png" width="250" alt="Game Screenshot">
 
-- Aaaand that's all for now.
+- Aaaand that's all for now. 
